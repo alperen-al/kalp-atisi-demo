@@ -1,0 +1,306 @@
+/* === GENEL === */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  background-color: #001F3F;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === HEADER & MENÜ === */
+header {
+  display: flex;
+  align-items: center;
+  padding: 30px 30px 50px;
+  background-color: #001F3F;
+  position: relative;
+  margin-bottom: -10px; /* Butonların altına boşluk eklendi */
+}
+.main-title {
+  flex: 1;
+  font-size: 36px;
+  text-align: center;
+  color: white;
+}
+#menu-toggle {
+  cursor: pointer;
+  font-size: 28px;
+  color: white;
+  margin-right: 20px;
+}
+#popup-menu {
+  display: none;
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  width: 200px;
+  background: #001F3F;
+  border: 2px solid black;
+  padding: 10px;
+  z-index: 1100;
+  flex-direction: column;
+}
+#popup-menu a {
+  display: block;
+  margin: 5px 0;
+  color: white;
+  text-decoration: none;
+}
+#popup-menu hr {
+  margin: 8px 0;
+  border-color: #444;
+}
+
+/* === DROPDOWN === */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 10px; /* Butonların altına boşluk eklendi */
+}
+.dropbtn {
+  background-color: #f4f4f4;
+  color: #001F3F;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  /* right: 0; */      /* Bunu kaldır */
+  left: 0;             /* Bunu ekle */
+  background-color: #001F3F;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.3);
+  z-index: 1100;
+  min-width: 160px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {
+  background-color: #004080;
+}
+
+/* === HARİTA === */
+.map-container {
+  padding: 20px;
+  background-color: #001F3F;
+  position: relative;
+}
+#map {
+  width: 100%;
+  height: 500px;
+  border-radius: 8px;
+  border: 2px dashed black;
+  position: relative;
+  z-index: 0;
+}
+
+/* === EARNINGS === */
+.earnings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px;
+  padding: 20px;
+  background-color: #001F3F;
+  
+  border-radius: 20px;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.selectors-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+.selectors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+.short-select {
+  font-size: 15px;
+  padding: 10px;
+  width: 190px;
+}
+.date-range input[type="date"] {
+  font-size: 14px;
+}
+
+/* === Kazanç Kutuları + Satın Al === */
+.earnings-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+}
+
+.stat-box {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 200px; /* Sabit genişlik */
+  flex-shrink: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Dikeyde içeriği ortala */
+  
+  margin-left: auto;
+  margin-right: auto; /* Yatayda ortala */
+}
+
+.stat-box-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+.stat-box-value {
+  font-size: 24px;
+  font-weight: 900;
+  color: #d61818;
+  margin-top: 8px;
+}
+
+/* === Satın Al Kutusu === */
+.price-box {
+  background-color: #f4f4f4;
+  padding: 20px 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0,0,0,0.08);
+  width: 200px; /* Sabit genişlik stat-box ile uyumlu */
+  display: flex;
+  
+  flex-direction: column;
+  justify-content: center;
+}
+.price-box .price-value {
+  font-size: 32px;
+  color: #000;
+  font-weight: bold;
+}
+.price-box small {
+  font-size: 14px;
+  color: #555;
+}
+.price-box .rounded-button {
+  background-color: orange;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 12px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* === Genel Buton === */
+.rounded-button {
+  background-color: orange;
+  border: none;
+  padding: 8px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+/* === Canlı Gösterge === */
+.live-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-left: 8px;
+  border-radius: 50%;
+  background-color: limegreen;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  box-shadow: 0 0 5px limegreen;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* === Mobil Uyumluluk === */
+@media screen and (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+  }
+
+  .main-title {
+    font-size: 24px;
+    text-align: center; /* soldan ortaya değiştirildi */
+    margin-top: 10px;
+    width: 100%; /* tam genişlik */
+  }
+
+  #popup-menu {
+    width: 100%;
+    left: 0;
+    top: 60px;
+  }
+
+  #map {
+    height: 250px;
+  }
+
+  .earnings {
+    padding: 15px;
+  }
+
+  .selectors-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selectors {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .short-select,
+  .selectors input[type="date"] {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .earnings-summary {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stat-box,
+  .price-box {
+    width: 100% !important;
+    max-width: 300px !important;
+    margin: 0 auto 15px auto !important;
+    display: block !important;
+    text-align: center !important;
+  }
+}
+

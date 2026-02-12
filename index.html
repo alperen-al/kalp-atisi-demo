@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geleceğe Dokunun</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      background-color: #fff;
+    }
+    .section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .dark {
+      background: linear-gradient(135deg, #001f3f, #003366);
+      color: #ffffff;
+    }
+    .light {
+      background: linear-gradient(135deg, #ffe6ec, #ffc9d6);
+      color: #111;
+    }
+    .white {
+      background: #ffffff;
+      color: #222;
+    }
+    .multi-title span, .multi-paragraph span {
+      display: block;
+      font-size: 2rem;
+      margin: 12px 0;
+      font-weight: 600;
+    }
+    .multi-paragraph span {
+      color: #c1121f;
+    }
+    .arrow {
+      font-size: 40px;
+      margin-top: 40px;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+      user-select: none;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    /* Yeni kutu sistemi */
+    .info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  gap: 10px;
+  margin-top: 30px;
+  width: 100%;
+}
+
+
+    .arrow-btn {
+      font-size: 28px;
+      cursor: pointer;
+      user-select: none;
+      color: #c1121f;
+      transition: transform 0.2s;
+    }
+
+    .arrow-btn:hover {
+      transform: scale(1.2);
+    }
+
+    .info-wrapper {
+  width: 100%;
+  max-width: 750px;
+  min-height: 220px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+    .info-box {
+  position: absolute;
+  width: 100%;
+  max-width: 700px;
+  min-width: 300px;
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  line-height: 1.6;
+  text-align: left;
+  color: #333;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+
+  /* DÜZENLEYİCİLER */
+  word-break: break-word;
+  white-space: normal;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  margin: 0 auto;
+  text-align: left;
+}
+
+
+
+    .info-box.active {
+      display: block;
+      opacity: 1;
+    }
+
+    .dropdown-box {
+      margin-top: 30px;
+    }
+
+    select {
+      padding: 12px 20px;
+      font-size: 1rem;
+      border: 2px solid #c1121f;
+      border-radius: 8px;
+      background-color: #fff;
+      color: #c1121f;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: #990000;
+    }
+    @media (max-width: 600px) {
+  .info-box {
+    font-size: 14px;
+    padding: 20px;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Sayfa 1 -->
+  <section id="intro" class="section dark">
+    <div class="multi-title">
+      <span>Geleceğe Dokunun</span>
+      <span>Touch the Future</span>
+      <span>Toque el Futuro</span>
+      <span>Berühre die Zukunft</span>
+      <span>触摸未来</span>
+    </div>
+    <div class="arrow" onclick="document.getElementById('message').scrollIntoView({behavior:'smooth'})">⬇</div>
+  </section>
+
+  <!-- Sayfa 2 -->
+  <section id="message" class="section light">
+    <div class="multi-paragraph">
+      <span>Kalpten Kalbe, Zamandan Bağımsız Bir Mesaj.</span>
+      <span>From Heart to Heart, a Timeless Message.</span>
+      <span>De Corazón a Corazón, un Mensaje Atemporal.</span>
+      <span>Von Herz zu Herz, eine zeitlose Nachricht.</span>
+      <span>心与心之间，穿越时间的讯息。</span>
+    </div>
+
+    <div class="info-container">
+      <div class="arrow-btn" onclick="changeLanguage(-1)">⬅</div>
+      <div class="info-wrapper">
+        <div class="info-box active" id="lang-0">
+          <span>💌 Sevdiklerine özel bir mesaj bırakabilir, belirlediğin günde e-posta ile ulaşmasını sağlayabilirsin.</span>
+          <span>👥 Kurumlar da kendilerini tanıtan bir mesaj ekleyebilir. Mesaj, haritada pin olarak görünür.</span>
+          <span>📍 Ziyaretçiler, haritadaki pin üzerinden mesajı okuyabilir ve size ulaşabilir.</span>
+          <span>⏳ Mesaj iletilene kadar dijital bir hatıra ve tanıtım olarak yayında kalır.</span>
+        </div>
+
+        <div class="info-box" id="lang-1">
+          <span>💌 You can leave a message for your loved ones, to be delivered via email on a special day.</span>
+          <span>👥 Organizations can also post an intro message. It will appear as a pin on the map.</span>
+          <span>📍 Visitors can read the message and reach out to you through the pin.</span>
+          <span>⏳ Until delivery, it remains a digital memory and promotion.</span>
+        </div>
+
+        <div class="info-box" id="lang-2">
+          <span>💌 Puedes dejar un mensaje para tus seres queridos que se enviará por correo electrónico en una fecha especial.</span>
+          <span>👥 Las organizaciones también pueden publicar un mensaje de presentación. Aparecerá como un pin en el mapa.</span>
+          <span>📍 Los visitantes pueden leer el mensaje y contactarte a través del pin.</span>
+          <span>⏳ Hasta su entrega, permanece como un recuerdo digital y una promoción.</span>
+        </div>
+
+        <div class="info-box" id="lang-3">
+          <span>💌 Du kannst eine Nachricht für deine Liebsten hinterlassen, die an einem besonderen Tag per E-Mail zugestellt wird.</span>
+          <span>👥 Unternehmen können auch eine Vorstellung veröffentlichen. Sie erscheint als Pin auf der Karte.</span>
+          <span>📍 Besucher können die Nachricht lesen und dich über den Pin kontaktieren.</span>
+          <span>⏳ Bis zur Zustellung bleibt sie eine digitale Erinnerung und Werbung.</span>
+        </div>
+
+        <div class="info-box" id="lang-4">
+          <span>💌 你可以为亲人留下消息，在指定日期通过电子邮件发送。</span>
+          <span>👥 机构也可以发布介绍消息。它将作为图钉出现在地图上。</span>
+          <span>📍 访客可以点击图钉查看消息并与你联系。</span>
+          <span>⏳ 在发送前，它会作为数字记忆和宣传内容保留。</span>
+        </div>
+      </div>
+      <div class="arrow-btn" onclick="changeLanguage(1)">➡</div>
+    </div>
+
+    <div class="arrow" onclick="document.getElementById('language').scrollIntoView({behavior:'smooth'})">⬇</div>
+  </section>
+
+  <!-- Sayfa 3 -->
+  <section id="language" class="section white">
+    <div class="multi-paragraph">
+      <span>Lütfen devam etmek için dil seçiniz :</span>
+      <span>Please select a language to continue:</span>
+      <span>Por favor seleccione un idioma para continuar:</span>
+      <span>Bitte wählen Sie eine Sprache aus, um fortzufahren:</span>
+      <span>请选择一种语言继续：</span>
+    </div>
+    <div class="dropdown-box">
+      <select onchange="window.location.href=this.value">
+        <option disabled selected>— Dil / Language —</option>
+        <option value="tr.php">Türkçe</option>
+        <option value="eng/eng.php">English</option>
+        <option value="esp/esp.php">Español</option>
+        <option value="deutch/deutch.php">Deutsch</option>
+        <option value="china/china.php">中文</option>
+      </select>
+    </div>
+  </section>
+
+  <script>
+    let currentLang = 0;
+    const totalLangs = 5;
+
+    function changeLanguage(direction) {
+      document.getElementById(`lang-${currentLang}`).classList.remove("active");
+      currentLang = (currentLang + direction + totalLangs) % totalLangs;
+      document.getElementById(`lang-${currentLang}`).classList.add("active");
+    }
+  </script>
+
+</body>
+</html>
